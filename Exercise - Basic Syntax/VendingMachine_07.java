@@ -10,22 +10,17 @@ public class VendingMachine_07 {
         String input = scanner.nextLine();
         while (!input.equals("Start")){
             double coin = Double.parseDouble(input);
-            //1. proveryavame dali monetata e validna ako ne e printirame ...
-            if (coin == 0.1 || coin == 0.2 || coin == 0.5 || coin == 1 || coin == 2){
-                //2. sumirame monetite
+            
+            if (coin == 0.1 || coin == 0.2 || coin == 0.5 || coin == 1 || coin == 2){    
                 sumCoin += coin;
-
             }else {
                 System.out.printf("Cannot accept %.2f%n", coin);
             }
-            //3. chetem nov input
             input = scanner.nextLine();
-
         }
         String product = scanner.nextLine();
-        //4. dokato ne poluchim end ni se chetat produkti -> while cycle
+       
         while (!product.equals("End")){
-            //5. izbroyabvame sluchaite ako go kupi printirame ... i izvajdame parite, ako ne stigat parite printvame....
             switch (product){
                 case "Nuts":
                     if (sumCoin >= 2.0){
@@ -75,10 +70,7 @@ public class VendingMachine_07 {
 
 
             product = scanner.nextLine();
-            //8.scanirame sledvashtiya product
         }
         System.out.printf("Change: %.2f%n", sumCoin);
-
-        //9. restoto
     }
 }
