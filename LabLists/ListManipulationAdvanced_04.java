@@ -18,77 +18,96 @@ public class ListManipulationAdvanced_04 {
             switch (commandName) {
                 case "Contains":
                     int numToCheck = Integer.parseInt(commandElements[1]);
-                    if (numbers.contains(numToCheck)) {
-                        System.out.println("Yes");
-                    } else {
-                        System.out.println("No such number");
-                    }
+                    printIsContain(numbers, numToCheck);
                     break;
                 case "Print":
                     String commandSecondName = commandElements[1];
-                    if (commandSecondName.equals("even")) {
-                        for (int number : numbers) {
-                            if (number % 2 == 0) {
-                                System.out.print(number + " ");
-                            }
-                        }
-                        System.out.println();
-                    } else if (commandSecondName.equals("odd")) {
-                        for (int number : numbers) {
-                            if (number % 2 != 0) {
-                                System.out.print(number + " ");
-                            }
-                        }
-                        System.out.println();
-                    }
+                    printEven(numbers, commandSecondName);
+                    printOdd(numbers, commandSecondName);
                     break;
                 case "Get":
                     int sum = 0;
-                    for (int number : numbers) {
-                        sum += number;
-                    }
-                    System.out.println(sum);
+                    printSum(sum, numbers);
                     break;
                 case "Filter":
                     int numberForChecking = Integer.parseInt(commandElements[2]);
                     String sign = commandElements[1];
-                    if (sign.equals(">")) {
-                        for (Integer number : numbers) {
-                            if (number > numberForChecking) {
-                                System.out.print(number + " ");
-                            }
-                        }
-                        System.out.println();
-                    } else if (sign.equals(">=")) {
-                        for (Integer number : numbers) {
-                            if (number >= numberForChecking) {
-                                System.out.print(number + " ");
-                            }
-                        }
-                        System.out.println();
-                    } else if (sign.equals("<")) {
-                        for (Integer number : numbers) {
-                            if (number < numberForChecking) {
-                                System.out.print(number + " ");
-                            }
-                        }
-                        System.out.println();
-                    } else if (sign.equals("<=")) {
-                        for (Integer number : numbers) {
-                            if (number <= numberForChecking) {
-                                System.out.print(number + " ");
-                            }
-                        }
-                        System.out.println();
-                    }
-
-
+                    printFilter(numberForChecking, sign, numbers);
                 break;
 
             }
             command = scanner.nextLine();
         }
 
+    }
+
+    private static void printIsContain(List<Integer> numbers, int numToCheck) {
+        if (numbers.contains(numToCheck)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No such number");
+        }
+    }
+
+    private static void printEven(List<Integer> numbers, String commandSecondName) {
+        if (commandSecondName.equals("even")) {
+            for (int number : numbers) {
+                if (number % 2 == 0) {
+                    System.out.print(number + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    private static void printOdd(List<Integer> numbers, String commandSecondName) {
+        if (commandSecondName.equals("odd")) {
+            for (int number : numbers) {
+                if (number % 2 != 0) {
+                    System.out.print(number + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    private static void printSum(int sum, List<Integer> numbers) {
+        for (int number : numbers) {
+            sum += number;
+        }
+        System.out.println(sum);
+    }
+
+    private static void printFilter(int numberForChecking, String sign, List<Integer> numbers) {
+        if (sign.equals(">")) {
+            for (Integer number : numbers) {
+                if (number > numberForChecking) {
+                    System.out.print(number + " ");
+                }
+            }
+            System.out.println();
+        } else if (sign.equals(">=")) {
+            for (Integer number : numbers) {
+                if (number >= numberForChecking) {
+                    System.out.print(number + " ");
+                }
+            }
+            System.out.println();
+        } else if (sign.equals("<")) {
+            for (Integer number : numbers) {
+                if (number < numberForChecking) {
+                    System.out.print(number + " ");
+                }
+            }
+            System.out.println();
+        } else if (sign.equals("<=")) {
+            for (Integer number : numbers) {
+                if (number <= numberForChecking) {
+                    System.out.print(number + " ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
 
